@@ -1,0 +1,48 @@
+{
+  "name": "@henryqrm/ui-components",
+  "description": "UI Components",
+  "repository": "https://github.com/henryqrm/lerna-experiments",
+  "author": "henryqrm <henryqrm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build --parallel",
+    "start": "node build/sass-typings-watcher.js & lerna run start & yarn storybook",
+    "sassTypings": "node build/sass-typings-init.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-actions": "^5.1.8",
+    "@storybook/addon-info": "^5.1.8",
+    "@storybook/addon-links": "^5.1.8",
+    "@storybook/addons": "^5.1.8",
+    "@storybook/react": "^5.1.8",
+    "@types/node": "^12.0.8",
+    "@types/prop-types": "^15.7.1",
+    "babel-loader": "^8.0.6",
+    "chokidar": "^3.0.1",
+    "css-loader": "^3.0.0",
+    "lerna": "^3.15.0",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-docgen-typescript-loader": "^3.1.0",
+    "react-dom": "^16.8.6",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^6.0.2",
+    "typescript": "^3.5.2"
+  }
+}

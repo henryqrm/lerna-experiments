@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es5",
+    "module": "es2015",
+    "declaration": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "lib": [
+      "es6"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "tasks",
+    "**/*.test.ts",
+    "**/*Example.tsx",
+    "**/*.config.js"
+  ],
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.css",
+    "src/**/*.scss"
+  ]
+}
+

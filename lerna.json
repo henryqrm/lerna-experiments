@@ -1,0 +1,18 @@
+{
+  "npmClient": "yarn",
+  "lerna": "3.14.1",
+  "packages": ["packages/*"],
+  "publishConfig": { "access": "public" },
+  "version": "independent",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore(release): :tada: :rocket:"
+    },
+    "version": {
+      "conventionalCommits": true,
+      "createRelease": "github"
+    }
+  }
+}
