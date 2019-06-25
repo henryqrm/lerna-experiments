@@ -13,7 +13,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "private": true,
+  "private": false,
   "workspaces": [
     "packages/*"
   ],
@@ -24,7 +24,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.4.5",
     "@storybook/addon-actions": "^5.1.8",
     "@storybook/addon-info": "^5.1.8",
