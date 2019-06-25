@@ -23,5 +23,6 @@
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
-  }
+  },
+  "gitHead": "710e54a919078908fdde1d9bf1739d2f1607c444"
 }
