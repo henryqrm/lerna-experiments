@@ -1,6 +1,6 @@
 import * as React from "react"
 // import { string } from 'prop-types'
-import styles from "./buttons.scss";
+import styles from "./index.scss";
 
 export interface ButtonProps {
   label: string;
@@ -16,9 +16,5 @@ function Button({ label = 'asd', className, onClick }: ButtonProps) {
     </button>
   );
 }
-
-// Button.propTypes = {
-//   label: string.isRequired
-// };
 
 export default Button;

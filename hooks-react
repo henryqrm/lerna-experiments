@@ -1,0 +1,66 @@
+My notes
+- Todo hook tem um mount e um update, o mount executa apenas no primeiro render. E toda vez que ocorre um dispatch ou mudança de prop é feito ocoore o update do hook
+- Hooks usa a estrutura de dados lista encadeada, onde que cada nó, é o ponto de execução dentro da função. Por isso, hooks devem ser chamados no nível superior das funções React, caso contrario não saberia a próxima referência.
+- Hook tem uma key memoizedState, que utiliza de uma técnica chamada memoization, ao qual é armazenado o state/callback/objectMemo/deps. Que ao atualizar a referência, ocorre reender.
+- Cada hook é vinculado a função React ao qual foi chamado.
+- React usa um temporizador, caso sua função demore muito para executar. Dará erro.
+- Existe o conceito de reducer no useState, mas é encapsulado. Caso queira manipular o conceito de reducer é preciso usar o hook de useReducer, o que lhe forçara a fazer o seu próprio useState.
+- React armazena a função redutora e o último state, se a função redutora não mudar, é usado a última referência do state, evitando computação desnecessária.
+- Dependências são referências e não valores. A comparação das dependências usa Object.is
+
+
+
+const [state, myDispatch] = useState(initialState);
+const action = (state) => 
+myDispatch
+
+const last = {
+        action: 
+        eagerReducer: null
+        eagerState: null
+        expirationTime: 1073741823
+        next:
+    }
+
+
+const hook: Hook = {
+    memoizedState: null,
+    baseState: null,
+    queue: {
+        dispatch: null
+        eagerReducer: ƒ basicStateReducer(state, action)
+        eagerState: 0
+        last: 
+    },
+    baseUpdate: null,
+    next: null,
+};
+
+// todo hook verifica suas dependências/state com o código abaixo
+
+for (var i = 0; i < prevDeps.length && i < nextDeps.length; i++) {
+    if (is(nextDeps[i], prevDeps[i])) {
+      continue;
+    }
+    // não causa reender
+    return false;
+}
+// causa reender
+return true
+
+
+// useState
+- dispatch atualiza o queue do hook, que por sua vez executa o reender. Executa o update do hook, que por sua vez executa o reducer e verifica as referências, e atualiza a referência.
+- Hook implementa uma fila de duas posições. PrevState e NextState...
+
+// useMemo
+- evita recomputação de dados
+- memoizedState = [myObj, ...deps]
+- Use quando precise computar algum valor. Caso não
+
+// useCallback
+- retorna um callback para o useMemo
+- Use quando precisa ser passado para outro componente filho uma função, mantendo referências e executando o valor computado.
+
+// useCallback e useMemo
+- é o useState sem dispatch, onde o state é um array, onde o primeiro é o callback no caso do useCallback, ou o valor computado, e as outras posições são as dependências. Onde que só ocorre reender quando altera as deps

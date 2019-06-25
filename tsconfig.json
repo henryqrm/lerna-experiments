@@ -24,11 +24,6 @@
     "**/*.test.ts",
     "**/*Example.tsx",
     "**/*.config.js"
-  ],
-  "include": [
-    "src/**/*.tsx",
-    "src/**/*.css",
-    "src/**/*.scss"
   ]
 }
 

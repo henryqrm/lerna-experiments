@@ -5,8 +5,9 @@
   "author": "henryqrm <henryqrm@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run build --parallel",
+    "build:js": "lerna exec --parallel -- rollup -c ../../config/rollup.config.js",
     "start": "node build/sass-typings-watcher.js & lerna run start & yarn storybook",
     "sassTypings": "node build/sass-typings-init.js",
     "storybook": "start-storybook -p 6006",

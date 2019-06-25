@@ -1,5 +1,5 @@
-declare namespace buttons {
+declare namespace index {
 	const mainColor1: string
 	const second: string
 }
-export default buttons
+export default index

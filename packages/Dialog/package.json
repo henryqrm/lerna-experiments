@@ -5,9 +5,9 @@
   "author": "henryqrm <henryqrm@gmail.com>",
   "homepage": "https://github.com/henryqrm/lerna-experiments",
   "license": "ISC",
-  "main": "dist/dialogs.js",
-  "module": "dist/dialogs.js",
-  "typings": "dist/dialogs.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -20,7 +20,7 @@
     "start": "rollup -c -w",
     "test": "jest"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   }
