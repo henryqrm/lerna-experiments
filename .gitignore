@@ -5,7 +5,6 @@ lerna-debug.log
 .DS_Store
 **/dist/**
 .rpt2_cache
-coverage
 .nyc_output
 *.log
 dist

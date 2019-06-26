@@ -20,7 +20,7 @@ const generateTypingsFile = (filepath, classNames) => {
             return;
         }
 
-        typingsContent += `\tconst ${className}: string\n`;
+        typingsContent += `  const ${className}: string\n`;
     });
     typingsContent += `}\nexport default ${ns}`;
 

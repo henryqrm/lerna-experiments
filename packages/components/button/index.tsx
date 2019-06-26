@@ -1,20 +1,15 @@
-import * as React from "react"
-// import { string } from 'prop-types'
-import styles from "./index.scss";
+import React from 'react'
+import styles from './index.scss'
 
 export interface ButtonProps {
-  label: string;
-  className?: string;
-  buttonStyle?: React.CSSProperties;
-  onClick?: () => void;
+  buttonStyle?: React.CSSProperties
+  className?: string
+  label: string
+  onClick?(): void
 }
 
-function Button({ label = 'asd', className, onClick }: ButtonProps) {
-  return (
-    <button onClick={onClick} className={`${className} ${styles.mainColor1}`}>
-      {label}!!!
-    </button>
-  );
-}
-
-export default Button;
+export default ({ label = 'asd', className, onClick }: ButtonProps) => (
+  <button onClick={onClick} className={`${className} ${styles.mainColor1}`}>
+    {label}!!!
+  </button>
+)

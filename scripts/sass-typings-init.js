@@ -16,11 +16,6 @@ const helpers = require('./sass-typings-helpers.js');
         return;
     }
 
-    paths.forEach((path) => {
-        const typingsFile = `${path}.d.ts`;
-        if (!(fs.existsSync(typingsFile))) {
-            helpers.createDefaultTypingsFile(typingsFile);
-        }
-    });
+    paths.forEach((path) => !(fs.existsSync(`${path}.d.ts`)) ? helpers.createDefaultTypingsFile(`${path}.d.ts`) : void 0)
 
 })();
