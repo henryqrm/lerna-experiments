@@ -14,7 +14,6 @@
     "access": "public"
   },
   "keywords": [
-    "react",
     "javascript"
   ],
   "bugs": {
@@ -29,8 +28,5 @@
     "type": "git",
     "url": "https://github.com/henryqrm/lerna-experiments",
     "directory": "packages/libraries/to"
-  },
-  "dependencies": {
-    "react": "^16.7.0"
   }
 }
