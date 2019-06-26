@@ -6,23 +6,20 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "build": "lerna run build --parallel",
-    "build:js": "lerna exec --parallel -- rollup -c ../../config/rollup.config.js",
-    "start": "node build/sass-typings-watcher.js & lerna run start & yarn storybook",
-    "sassTypings": "node build/sass-typings-init.js",
-    "storybook": "start-storybook -p 6006",
+    "build": "lerna exec --parallel -- rollup -c ../../config/rollup.config.js",
+    "start": "node scripts/sass-typings-watcher.js & lerna run start & yarn storybook",
+    "sassTypings": "node scripts/sass-typings-init.js",
+    "storybook": "start-storybook -p 6006 -c config/storybook",
     "build-storybook": "build-storybook"
   },
   "private": false,
   "workspaces": [
-    "packages/*"
+    "packages/components/*",
+    "packages/containers/*",
+    "packages/libraries/*"
   ],
   "engines": {
     "node": ">=12"
-  },
-  "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

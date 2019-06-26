@@ -12,6 +12,7 @@ export default {
         postcss({
             modules: true,
             extract: true,
+            namedExports: true,
             generateScopedName: '[hash:base64:5]',
             plugins: [
                 autoprefixer()
@@ -34,14 +35,9 @@ export default {
     input: path.join(cwd, 'index.tsx'),
     output: [
         {
-            format: 'cjs',
+            format: 'umd',
             name: pkg.name,
             file: pkg.main
-        },
-        {
-            format: 'esm',
-            name: pkg.name,
-            file: pkg.module
         }
     ]
 };

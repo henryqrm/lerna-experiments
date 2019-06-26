@@ -1,4 +1,4 @@
-const include = require("path").resolve(__dirname, "../packages")
+const include = require("path").resolve(__dirname, "../../packages")
 
 module.exports = ({ config }) => {
     config.module.rules.push({

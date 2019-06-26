@@ -5,8 +5,8 @@
   "author": "henryqrm <henryqrm@gmail.com>",
   "homepage": "https://github.com/henryqrm/lerna-experiments",
   "license": "ISC",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"

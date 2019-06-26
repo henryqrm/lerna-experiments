@@ -16,7 +16,7 @@ addDecorator(
 
 // Automatically import all examples
 const req = require.context(
-  "../packages",
+  "../../packages",
   true,
   /^((?!node_modules).)*\.example\.(js|ts)x?$/
 )
