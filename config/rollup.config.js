@@ -2,10 +2,13 @@ import typescript from 'rollup-plugin-typescript2';
 import postcss from 'rollup-plugin-postcss';
 import autoprefixer from 'autoprefixer';
 import path from 'path'
+import { existsSync } from 'fs'
 
 
 const cwd = process.cwd()
 const pkg = require(path.join(cwd, 'package.json'))
+
+const getInput = () => existsSync(path.join(cwd, 'index.tsx')) ? path.join(cwd, 'index.tsx') : path.join(cwd, 'index.ts')
 
 export default {
     plugins: [
@@ -32,7 +35,7 @@ export default {
         }),
     ],
     external: Object.keys(pkg.dependencies),
-    input: path.join(cwd, 'index.tsx'),
+    input: getInput(),
     output: [
         {
             format: 'umd',

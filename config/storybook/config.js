@@ -18,7 +18,7 @@ addDecorator(
 const req = require.context(
   "../../packages",
   true,
-  /^((?!node_modules).)*\.example\.(js|ts)x?$/
+  /^((?!node_modules).)*\.stories\.(js|ts)x?$/
 )
 
 configure(() => {

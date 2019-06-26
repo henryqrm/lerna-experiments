@@ -1,29 +1,27 @@
 {
   "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "lib": ["es2015", "es2017", "dom"],
     "jsx": "react",
     "target": "es5",
-    "module": "es2015",
-    "declaration": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "esModuleInterop": true,
     "noImplicitAny": false,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
     "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "lib": [
-      "es6"
-    ]
+    "moduleResolution": "node"
   },
+  "compileOnSave": true,
   "exclude": [
-    "node_modules",
+    "**/node_modules/**",
     "build",
     "tasks",
     "**/*.test.ts",
-    "**/*Example.tsx",
-    "**/*.config.js"
+    "**/*.store.tsx"
   ]
 }
-

@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "build": "lerna exec --parallel -- rollup -c ../../config/rollup.config.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "build": "lerna exec --parallel -- rollup -c ../../../config/rollup.config.js",
     "start": "node scripts/sass-typings-watcher.js & lerna run start & yarn storybook",
     "sassTypings": "node scripts/sass-typings-init.js",
     "storybook": "start-storybook -p 6006 -c config/storybook",
@@ -28,12 +30,14 @@
     "@storybook/addon-links": "^5.1.8",
     "@storybook/addons": "^5.1.8",
     "@storybook/react": "^5.1.8",
+    "@types/jest": "^24.0.15",
     "@types/node": "^12.0.8",
     "@types/prop-types": "^15.7.1",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
     "chokidar": "^3.0.1",
     "css-loader": "^3.0.0",
+    "jest": "^24.8.0",
     "lerna": "^3.15.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
@@ -44,7 +48,32 @@
     "rollup-plugin-typescript2": "^0.21.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.2",
     "typescript": "^3.5.2"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec|steps))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 30,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }

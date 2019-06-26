@@ -1,0 +1,36 @@
+{
+  "name": "@henryqrm/button",
+  "version": "0.0.0",
+  "description": "Button component.",
+  "homepage": "https://github.com/henryqrm/lerna-experiments",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/henryqrm/lerna-experiments/issues"
+  },
+  "author": {
+    "name": "Henrique Rodrigues Moreira",
+    "email": "henryqrm@gmail.com",
+    "url": "http://github.com/henryqrm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/henryqrm/lerna-experiments",
+    "directory": "packages/components/button"
+  },
+  "dependencies": {
+    "react": "^16.7.0"
+  }
+}
