@@ -1,4 +1,7 @@
+:scope {
+  --button-color: #fff;
+}
+
 .mainColor1 {
-    color: #fff;
-    color: var(--button-color);
+  color: var(--button-color);
 }
