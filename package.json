@@ -10,14 +10,17 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
-    "build": "lerna exec --parallel -- rollup -c ../../../config/rollup.config.js",
+    "build": "lerna exec --parallel -- rollup -c ../../../config/rollup.config.ts",
     "start": "node scripts/sass-typings-watcher.js & lerna run start & yarn storybook",
     "sassTypings": "node scripts/sass-typings-init.js",
     "build-storybook": "build-storybook",
     "precommit": "lint-staged",
     "commit": "git-cz",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "lint": "tslint  --project tsconfig.json -t codeFrame 'packages/**/*.ts*'"
+    "lint": "tslint  --project tsconfig.json -t codeFrame 'packages/**/*.ts*'",
+    "new:component": "node scripts/create-new-package.js component",
+    "new:container": "",
+    "new:library": ""
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

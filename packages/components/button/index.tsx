@@ -8,8 +8,10 @@ export interface ButtonProps {
   onClick?(): void
 }
 
-export default ({ label = 'asd', className, onClick }: ButtonProps) => (
-  <button onClick={onClick} className={`${className} ${styles.mainColor1}`}>
-    {label}!!!
-  </button>
+export default React.memo(
+  ({ label = 'asd', className, onClick }: ButtonProps) => (
+    <button onClick={onClick} className={`${className} ${styles.mainColor1}`}>
+      {label}!!!
+    </button>
+  )
 )
