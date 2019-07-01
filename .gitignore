@@ -11,3 +11,4 @@ dist
 compiled
 .awcache
 docs
+coverage
