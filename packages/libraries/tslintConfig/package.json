@@ -1,15 +1,10 @@
 {
-  "name": "@henryqrm/button",
-  "version": "0.0.2",
-  "description": "Button component.",
+  "name": "@henryqrm/tslint-config",
+  "version": "0.0.0",
+  "description": "tslint-config libraries.",
   "homepage": "https://github.com/henryqrm/lerna-experiments",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "main": "dist/tslintConfig.js",
   "publishConfig": {
     "access": "public"
   },
@@ -28,9 +23,17 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/henryqrm/lerna-experiments",
-    "directory": "packages/components/button"
+    "directory": "packages/libraries/tslintConfig"
+  },
+  "peerDependencies": {
+    "tslint": "^5.18.0"
   },
   "dependencies": {
-    "react": "^16.7.0"
+    "prettier": "^1.18.2",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-react": "^4.0.0",
+    "tslint-react-hooks": "^2.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1"
   }
 }

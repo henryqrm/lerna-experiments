@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './index.scss'
+import styles from './Button.scss'
 
 export interface ButtonProps {
   buttonStyle?: React.CSSProperties

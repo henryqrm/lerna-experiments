@@ -1,12 +1,12 @@
 {
-  "name": "@henryqrm/to",
-  "version": "0.0.0",
-  "description": "to library.",
+  "name": "@henryqrm/button",
+  "version": "0.0.2",
+  "description": "Button component.",
   "homepage": "https://github.com/henryqrm/lerna-experiments",
   "license": "MIT",
-  "main": "dist/to.js",
-  "module": "dist/to.js",
-  "typings": "dist/to.d.ts",
+  "main": "dist/Button.js",
+  "module": "dist/Button.js",
+  "typings": "dist/Button.d.ts",
   "files": [
     "dist"
   ],
@@ -14,6 +14,7 @@
     "access": "public"
   },
   "keywords": [
+    "react",
     "javascript"
   ],
   "bugs": {
@@ -27,6 +28,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/henryqrm/lerna-experiments",
-    "directory": "packages/libraries/to"
+    "directory": "packages/components/Button"
+  },
+  "dependencies": {
+    "react": "^16.7.0"
   }
 }

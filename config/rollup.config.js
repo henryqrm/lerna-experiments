@@ -7,10 +7,12 @@ import { existsSync } from 'fs'
 const cwd = process.cwd()
 const pkg = require(path.join(cwd, 'package.json'))
 
+const fileName = cwd.split('/').pop()
+
 const getInput = () =>
-  existsSync(path.join(cwd, 'index.tsx'))
-    ? path.join(cwd, 'index.tsx')
-    : path.join(cwd, 'index.ts')
+  existsSync(path.join(cwd, `${fileName}.tsx`))
+    ? path.join(cwd, `${fileName}.tsx`)
+    : path.join(cwd, `${fileName}.ts`)
 
 export default {
   plugins: [
