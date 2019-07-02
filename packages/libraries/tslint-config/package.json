@@ -4,7 +4,7 @@
   "description": "tslint-config libraries.",
   "homepage": "https://github.com/henryqrm/lerna-experiments",
   "license": "MIT",
-  "main": "dist/tslintConfig.js",
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +23,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/henryqrm/lerna-experiments",
-    "directory": "packages/libraries/tslintConfig"
+    "directory": "packages/libraries/tslint-config"
   },
   "peerDependencies": {
     "tslint": "^5.18.0"

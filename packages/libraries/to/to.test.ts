@@ -1,4 +1,4 @@
-import to from './index'
+import to from './to'
 
 describe('Await to test', () => {
   it('should resolve promise with payload', async () => {
@@ -51,6 +51,7 @@ describe('Await to test', () => {
     interface Payload {
       title: string
     }
+
     const payload: Payload = {
       title: 'hello world'
     }

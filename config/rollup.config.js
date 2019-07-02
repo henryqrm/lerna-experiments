@@ -9,10 +9,39 @@ const pkg = require(path.join(cwd, 'package.json'))
 
 const fileName = cwd.split('/').pop()
 
-const getInput = () =>
-  existsSync(path.join(cwd, `${fileName}.tsx`))
-    ? path.join(cwd, `${fileName}.tsx`)
-    : path.join(cwd, `${fileName}.ts`)
+const getInputTs = () => {
+  if (existsSync(path.join(cwd, `${fileName}.tsx`))) {
+    return path.join(cwd, `${fileName}.tsx`)
+  }
+
+  if (existsSync(path.join(cwd, `${fileName}.ts`))) {
+    return path.join(cwd, `${fileName}.ts`)
+  }
+
+  if (existsSync(path.join(cwd, `index.ts`))) {
+    return path.join(cwd, `index.ts`)
+  }
+
+  return
+}
+
+const getInputJs = () => {
+  if (existsSync(path.join(cwd, `${fileName}.jsx`))) {
+    return path.join(cwd, `${fileName}.jsx`)
+  }
+
+  if (existsSync(path.join(cwd, `${fileName}.js`))) {
+    return path.join(cwd, `${fileName}.js`)
+  }
+
+  if (existsSync(path.join(cwd, `index.js`))) {
+    return path.join(cwd, `index.js`)
+  }
+
+  return
+}
+
+const input = getInputTs() || getInputJs()
 
 export default {
   plugins: [
@@ -24,7 +53,7 @@ export default {
       plugins: [autoprefixer()],
       extensions: ['.scss', '.css']
     }),
-    typescript({
+    getInputTs() && typescript({
       clean: true,
       tsconfigOverride: {
         compilerOptions: {
@@ -35,7 +64,7 @@ export default {
     })
   ],
   external: Object.keys(pkg.dependencies || {}),
-  input: getInput(),
+  input,
   output: {
     globals: {
       react: 'React'
