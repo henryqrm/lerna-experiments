@@ -1,29 +1,29 @@
-import { configure, addDecorator, addParameters } from "@storybook/react"
-import { getStorybook } from "@storybook/react"
-import { withInfo } from "@storybook/addon-info"
+import { configure, addDecorator, addParameters } from '@storybook/react'
+import { getStorybook } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
 addParameters({
   options: {
-    panelPosition: "right",
-  },
+    panelPosition: 'right'
+  }
 })
 
 addDecorator(
   withInfo({
-    inline: true,
+    inline: true
   })
 )
 
 // Automatically import all examples
 const req = require.context(
-  "../../packages",
+  '../../packages',
   true,
   /^((?!node_modules).)*\.stories\.(js|ts)x?$/
 )
 
 configure(() => {
   // import the welcome chapter
-  require("./welcomeToStory")
+  require('./welcomeToStory')
 
   req.keys().forEach(file => req(file))
 }, module)

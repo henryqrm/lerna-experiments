@@ -7,7 +7,6 @@ const isLibrary = type === 'libraries'
 const directory = `packages/${type}/${isLibrary ? name : Name}`
 const file = isLibrary ? `${name}.ts` : `${Name}.tsx`
 
-
 const containers = `import React from 'react'
 import styles from './${Name}.scss'
 

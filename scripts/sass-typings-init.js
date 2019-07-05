@@ -1,21 +1,21 @@
-const globby = require('globby');
-const fs = require('fs');
-const helpers = require('./sass-typings-helpers.js');
+const globby = require('globby')
+const fs = require('fs')
+const helpers = require('./sass-typings-helpers.js')
 
 /**
  * Run `yarn sassTypings` to generate default typings files for sass files. They are generated automatically
  * when you're running `yarn start`, but if not, you can run this command to do it manually.
  */
-(async () => {
-    const paths = await globby([
-        'packages/**/src/**/*.scss',
-        '!(node_modules)'
-    ]);
+;(async () => {
+  const paths = await globby(['packages/**/src/**/*.scss', '!(node_modules)'])
 
-    if (!paths) {
-        return;
-    }
+  if (!paths) {
+    return
+  }
 
-    paths.forEach((path) => !(fs.existsSync(`${path}.d.ts`)) ? helpers.createDefaultTypingsFile(`${path}.d.ts`) : void 0)
-
-})();
+  paths.forEach(path =>
+    !fs.existsSync(`${path}.d.ts`)
+      ? helpers.createDefaultTypingsFile(`${path}.d.ts`)
+      : void 0
+  )
+})()

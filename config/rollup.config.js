@@ -53,15 +53,16 @@ export default {
       plugins: [autoprefixer()],
       extensions: ['.scss', '.css']
     }),
-    getInputTs() && typescript({
-      clean: true,
-      tsconfigOverride: {
-        compilerOptions: {
-          outDir: './dist'
-        },
-        include: [cwd]
-      }
-    })
+    getInputTs() &&
+      typescript({
+        clean: true,
+        tsconfigOverride: {
+          compilerOptions: {
+            outDir: './dist'
+          },
+          include: [cwd]
+        }
+      })
   ],
   external: Object.keys(pkg.dependencies || {}),
   input,
