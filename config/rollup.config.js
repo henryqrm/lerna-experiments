@@ -2,46 +2,19 @@ import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
 import path from 'path'
-import { existsSync } from 'fs'
+import { readdirSync } from 'fs'
 
 const cwd = process.cwd()
 const pkg = require(path.join(cwd, 'package.json'))
+const dirFiles = readdirSync(cwd)
+const extensions = ['tsx', 'ts', 'jsx', 'js']
 
 const fileName = cwd.split('/').pop()
 
-const getInputTs = () => {
-  if (existsSync(path.join(cwd, `${fileName}.tsx`))) {
-    return path.join(cwd, `${fileName}.tsx`)
-  }
-
-  if (existsSync(path.join(cwd, `${fileName}.ts`))) {
-    return path.join(cwd, `${fileName}.ts`)
-  }
-
-  if (existsSync(path.join(cwd, `index.ts`))) {
-    return path.join(cwd, `index.ts`)
-  }
-
-  return
-}
-
-const getInputJs = () => {
-  if (existsSync(path.join(cwd, `${fileName}.jsx`))) {
-    return path.join(cwd, `${fileName}.jsx`)
-  }
-
-  if (existsSync(path.join(cwd, `${fileName}.js`))) {
-    return path.join(cwd, `${fileName}.js`)
-  }
-
-  if (existsSync(path.join(cwd, `index.js`))) {
-    return path.join(cwd, `index.js`)
-  }
-
-  return
-}
-
-const input = getInputTs() || getInputJs()
+const extension = _file => extensions.find(_extension => _file.split('.')[1] === _extension)
+const inputFile = dirFiles.find(_file => _file === `${fileName}.${extension(_file)}`)
+const isTs = Boolean((inputFile || '').match('ts'))
+const input = path.join(cwd, inputFile || 'index.js')
 
 export default {
   plugins: [
@@ -53,7 +26,7 @@ export default {
       plugins: [autoprefixer()],
       extensions: ['.scss', '.css']
     }),
-    getInputTs() && typescript({
+    isTs && typescript({
       clean: true,
       tsconfigOverride: {
         compilerOptions: {
@@ -69,7 +42,7 @@ export default {
     globals: {
       react: 'React'
     },
-    format: 'umd',
+    format: inputFile ? 'umd' : 'cjs',
     name: pkg.name,
     file: pkg.main
   }
