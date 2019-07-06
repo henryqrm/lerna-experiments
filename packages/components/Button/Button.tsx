@@ -2,16 +2,19 @@ import React from 'react'
 import styles from './Button.scss'
 
 export interface ButtonProps {
-  buttonStyle?: React.CSSProperties
-  className?: string
-  label: string
+  /**
+   * Click event handler
+   */
   onClick?(): void
 }
 
-export default React.memo(
-  ({ label = 'asd', className, onClick }: ButtonProps) => (
-    <button onClick={onClick} className={`${className} ${styles.mainColor1}`}>
-      {label}!!!
-    </button>
-  )
+const Button: React.FunctionComponent<ButtonProps> = ({
+  children,
+  onClick,
+}) => (
+  <button className={styles.mainColor1} type="button" onClick={onClick}>
+    {children}
+  </button>
 )
+
+export default Button

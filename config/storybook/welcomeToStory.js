@@ -2,7 +2,7 @@ import React from "react"
 
 import { storiesOf } from "@storybook/react"
 
-storiesOf("Welcome", module)
+storiesOf("1. Introdução|Welcome", module)
     .addParameters({
         options: {
             showPanel: false,

@@ -1,5 +1,5 @@
 {
-  "name": "@henryqrm/ui-components",
+  "name": "@henryqrm/libraries",
   "description": "UI Components",
   "repository": "https://github.com/henryqrm/lerna-experiments",
   "author": "henryqrm <henryqrm@gmail.com>",
@@ -11,7 +11,7 @@
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run lint && npm run test -- --no-cache",
     "build": "lerna exec --parallel -- rollup -c ../../../config/rollup.config.js",
-    "start": "node scripts/sass-typings-watcher.js & lerna run start & yarn storybook",
+    "start": "node scripts/sass-typings-watcher.js & npm run storybook",
     "sassTypings": "node scripts/sass-typings-init.js",
     "build-storybook": "build-storybook",
     "precommit": "lint-staged",
@@ -22,7 +22,63 @@
     "new:container": "node scripts/create-new-package.js containers",
     "new:library": "node scripts/create-new-package.js libraries"
   },
-  "devDependencies": {
+  "private": false,
+  "workspaces": [
+    "packages/components/*",
+    "packages/containers/*",
+    "packages/libraries/*"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.{tsx,ts}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec|steps))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "setupFiles": [
+      "./config/jest-setup.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "dependencies": {
     "@babel/core": "^7.4.5",
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
@@ -30,7 +86,7 @@
     "@storybook/addon-info": "^5.1.8",
     "@storybook/addon-links": "^5.1.8",
     "@storybook/addons": "^5.1.8",
-    "@storybook/react": "^5.1.8",
+    "@storybook/react": "^5.1.9",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.8",
     "@types/prop-types": "^15.7.1",
@@ -68,69 +124,7 @@
     "tslint-react": "^4.0.0",
     "tslint-react-hooks": "^2.1.1",
     "typedoc": "^0.14.2",
-    "typescript": "^3.5.2"
-  },
-  "private": false,
-  "workspaces": [
-    "packages/components/*",
-    "packages/containers/*",
-    "packages/libraries/*"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "lint-staged": {
-    "{src,test}/**/*.{tsx,ts}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "prettier": {
-    "bracketSpacing": true,
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "testEnvironment": "node",
-    "testRegex": "(/__tests__/.*|\\.(test|spec|steps))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/"
-    ],
-    "setupFiles": [
-      "./config/jest-setup.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
+    "typescript": "^3.5.2",
+    "@types/enzyme": "^3.10.1"
   }
 }
